@@ -1,9 +1,12 @@
 from subject_utils import fetch_light_curve, light_curve_url, normalise_light_curve, sonify
 from panoptes_client import SubjectSet
+from pathlib import Path
 
 subject_set = SubjectSet.find(117755)
 i = 1
-  
+
+Path('wav/sims').mkdir(parents=True, exist_ok=True)
+
 for subject in subject_set.subjects:
   url = light_curve_url(subject)
   print(i, url)
