@@ -2,3 +2,4 @@ numpy==1.26.3
 panoptes_client==1.6.1
 Requests==2.31.0
 strauss==0.1.1
+python-dotenv==1.0.1
