@@ -41,12 +41,13 @@ for subject_id in EXAMPLES:
 with Panoptes(client_id = CLIENT_ID, client_secret = CLIENT_SECRET):
   subject_set = SubjectSet.find(SUBJECT_SET_ID)
   subjects = []
-  for original in originals:
-    subject = Subject()
-    subject.metadata.update(original.metadata)
-    subject.metadata['!PH-TESS Subject'] = original.id
-    subject.add_location(f'mp3/sims/{original.id}.mp3')
-    subject.links.project = PROJECT_ID
-    subject.save()
-    subjects.append(subject)
+  with Subject.async_saves():
+    for original in originals:
+      subject = Subject()
+      subject.metadata.update(original.metadata)
+      subject.metadata['!PH-TESS Subject'] = original.id
+      subject.add_location(f'mp3/sims/{original.id}.mp3')
+      subject.links.project = PROJECT_ID
+      subject.save()
+      subjects.append(subject)
   subject_set.add(subjects)
