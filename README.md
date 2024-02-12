@@ -2,7 +2,7 @@
 Python functions for sonification of TESS light curves. Requires Python 3.5 or higher. Uses [STRAUSS](https://github.com/james-trayford/strauss) to generate audio from `x,y` data for each light curve.
 
 1. Install dependencies with:
-    ```python
+    ```sh
     pip install -r requirements.txt
     ```
 1. Run `tess_examples.py` or `tess_subjects.py` to generate a set of WAV files with STRAUSS.
