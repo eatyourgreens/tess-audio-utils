@@ -1,9 +1,10 @@
 # tess-audio-utils
-Python functions for sonification of TESS light curves. Requires Python 3.8. Uses [STRAUSS](https://github.com/james-trayford/strauss) to generate audio from `x,y` data for each light curve.
+Python functions for sonification of TESS light curves. Requires Python 3.8. Uses [STRAUSS](https://github.com/james-trayford/strauss) to generate audio from `x,y` data for each light curve, and [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) for package management.
 
-1. Install dependencies with:
+1. Install dependencies in their own `conda` environment:
     ```sh
-    pip install -r requirements.txt
+    conda env create -f environment.yml
+    conda activate tess-audio-utils
     ```
 1. Run `tess_examples.py` or `tess_subjects.py` to generate a set of WAV files with STRAUSS.
 1. Once you've got the WAV files, you can convert them to MP3 with the ffmpeg shell scripts.
