@@ -7,36 +7,10 @@ load_dotenv()
 CLIENT_ID = '7fecf1c5d5a2e1d7c9a6ccf0344e5ae9f1fb6ad7b412192d31182c6cdb3da8ed'
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 PROJECT_ID = 23238
-SUBJECT_SET_ID = 118526
+SUBJECT_SET_ID = 121322
 
-EXAMPLES = [
- # subject, transits
-  94880862, # 3
-  94880864, # 3
-  94879057, # 3
-  94878694, # 2
-  94879597, # 2
-  94879726, # 2
-  94880124, # 2
-  94879979, # 2
-  94878602, # 1
-  94878691, # 2
-  94880222, # 3
-  94879225, # 3
-  94880438, # 3
-  94879329, # 3
-  94878733, # 2
-  94878682, # 2
-  94878411, # 2
-  94878661, # 2
-  94880022, # 1
-  94880415, # 1
-]
-
-originals = []
-for subject_id in EXAMPLES:
-  original = Subject.find(subject_id)
-  originals.append(original)
+subject_set = SubjectSet.find(117755)
+originals = subject_set.subjects
 
 with Panoptes(client_id = CLIENT_ID, client_secret = CLIENT_SECRET):
   subject_set = SubjectSet.find(SUBJECT_SET_ID)
